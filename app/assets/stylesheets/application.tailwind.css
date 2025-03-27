@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    @apply bg-green-950 text-white tracking-wider;
+    @apply bg-green-950 text-white font-[Jost] tracking-wider;
 }
 
 section {
@@ -34,12 +34,17 @@ h3 {
     @apply text-yellow-500;
 }
 
+/* active */
+.active {
+    @apply text-yellow-500;    
+}
+
+
 .title {
     @apply text-yellow-500;   
 }
 
 /* button */
-/* los comentarios en .css van asi, Remember it, Marcky */
 
 .btn {
     @apply border border-yellow-500 bg-yellow-500 rounded-md px-5 py-2

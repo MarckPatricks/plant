@@ -2,7 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-
 //  TOGGLE BUTTON
 const navMenu = document.getElementById("nav-menu")
 const navLink = document.querySelectorAll(".nav-link")
@@ -20,7 +19,7 @@ navLink.forEach(link => {
     })
 })
 
-//SHOW SCROLL UP
+//SHOW SCROLL UP BUTTON
 
 const scrollUp = () => {
     const scrollUpBtn = document.getElementById("scroll-up");
@@ -34,10 +33,9 @@ const scrollUp = () => {
     }
 };
 
-window.addEventListener("scroll", scrollUp);
+ window.addEventListener("scroll", scrollUp);
 
-
-//CHANGE BACKGROUND HEADER
+//CHANGE BACKGROUND HEADER (BORDER)
 
 const scrollHeader = () => {
     const header = document.getElementById("navbar");
@@ -49,9 +47,9 @@ const scrollHeader = () => {
     }
 };
 
-window.addEventListener("scroll", scrollHeader);
+ window.addEventListener("scroll", scrollHeader);
 
-// SWIPER
+// SWIPER (REVIEWS)
 
 const swiper = new Swiper('.swiper', {
     // Optional parameters
@@ -80,3 +78,34 @@ const swiper = new Swiper('.swiper', {
         },      
     }
   });
+
+// SCROLL SECTIONS ACTIVE LINK
+const activeLink = () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link'); //Se agregó data-turbo='false' para que funcionara correctamente
+
+    let current = "home";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        
+        if (window.scrollY >= sectionTop - 81) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(item => {
+        item.classList.remove("active");
+
+        // Se extrae solo el hash del href (#about, #contact, etc.)
+        if (item.hash === `#${current}`) {
+            item.classList.add("active");
+        }
+    });
+};
+
+ window.addEventListener("scroll", activeLink);
+
+
+
+  // SCROLL REVEAL ANIMATION
