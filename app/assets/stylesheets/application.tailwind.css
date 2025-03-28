@@ -41,7 +41,7 @@ h3 {
 
 
 .title {
-    @apply text-yellow-500;   
+    @apply text-yellow-500 font-[Lobster];   
 }
 
 /* button */
